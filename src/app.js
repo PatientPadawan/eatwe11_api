@@ -3,6 +3,8 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
+const bodyParser = require('body-parser');
+const emailRouter = require('./email/emailRouter');
 const {
   NODE_ENV,
   CLIENT_ORIGIN,
@@ -17,6 +19,10 @@ app.use(helmet());
 app.use(cors({
   origin: CLIENT_ORIGIN,
 }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.use('/api/register', emailRouter);
 
 app.get('/', (req, res) => {
   res.send('Hello, boilerplate!');
