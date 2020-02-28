@@ -5,6 +5,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const emailRouter = require('./email/emailRouter');
+const mealRouter = require('./meal/mealRouter');
 const {
   NODE_ENV,
   CLIENT_ORIGIN,
@@ -23,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use('/api/register', emailRouter);
+app.use('/api/meal', mealRouter);
 
 app.get('/', (req, res) => {
   res.send('Hello, boilerplate!');
