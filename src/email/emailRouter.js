@@ -15,7 +15,7 @@ emailRouter.post('/', (req, res, next) => {
     text: content,
   };
 
-  smtpTransport.sendMail(mail, (err, data) => {
+  smtpTransport.sendMail(mail, (err, _data) => {
     if (err) {
       res.json({
         status: 'fail',

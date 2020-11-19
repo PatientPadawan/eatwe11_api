@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 
 app.use('/api/register', emailRouter);
 app.use('/api/meal', mealRouter);
-
+// DELETE BOILERPLATE RESPONSE BELOW
 app.get('/', (req, res) => {
   res.send('Hello, boilerplate!');
 });
